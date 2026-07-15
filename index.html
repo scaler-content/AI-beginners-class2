@@ -329,7 +329,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
     <div class="hstat"><div class="n" data-count="6">0</div><div class="l">Techniques</div></div>
     <div class="hstat"><div class="n" data-count="8">0</div><div class="l">Live Simulators</div></div>
     <div class="hstat"><div class="n" data-count="5">0</div><div class="l">Checkpoint Quizzes</div></div>
-    <div class="hstat"><div class="n" data-count="3">0</div><div class="l">Prompt Challenges</div></div>
+    <div class="hstat"><div class="n" data-count="2">0</div><div class="l">Prompt Challenges</div></div>
   </div>
   <div class="agenda">
     <h3>Today's Flight Plan · 2 Hours</h3>
@@ -339,7 +339,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
     <div class="agRow"><span class="t">00:45–01:03</span><span class="name">Zero-Shot vs Few-Shot Prompting</span><span class="tag sim">SIM + QUIZ</span></div>
     <div class="agRow"><span class="t">01:03–01:28</span><span class="name">Chain-of-Thought + Output Formatting</span><span class="tag sim">2 SIMS + QUIZ</span></div>
     <div class="agRow"><span class="t">01:28–01:45</span><span class="name">Refining a Prompt in Five Rounds</span><span class="tag sim">SLIDER + QUIZ</span></div>
-    <div class="agRow"><span class="t">01:45–01:55</span><span class="name">Three Prompt Challenges</span><span class="tag quiz">HANDS-ON</span></div>
+    <div class="agRow"><span class="t">01:45–01:55</span><span class="name">Two Prompt Challenges</span><span class="tag quiz">HANDS-ON</span></div>
     <div class="agRow"><span class="t">01:55–02:00</span><span class="name">Wrap-Up — The Prompt Engineer's Checklist</span><span class="tag sim">MATCHER</span></div>
   </div>
 </div></header>
@@ -660,83 +660,58 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 
 <!-- ============ SECTION 6 ============ -->
 <section class="blk" id="s6"><div class="wrap">
-  <div class="secHead"><span class="secNum">§ 6</span><h2>Three Prompt Challenges</h2><span class="secTime">⏱ 10 min</span></div>
+  <div class="secHead"><span class="secNum">§ 6</span><h2>Two Prompt Challenges</h2><span class="secTime">⏱ 10 min</span></div>
   <p class="secLede">Each challenge tests a different combination of today's techniques. Write your prompt, run it in your AI platform, read the output, iterate at least once. Tick the pass criteria as you meet them. This is where the learning really happens.</p>
 
   <div class="chalCard" id="chal1">
-    <div class="chalHead"><span class="cn">C1</span><h4>The Code Reviewer</h4><span class="chev">▶</span></div>
+    <div class="chalHead"><span class="cn">C1</span><h4>The Incident Commander</h4><span class="chev">▶</span></div>
     <div class="chalBody">
-      <div class="cLabel">The Setup</div>
-      <p class="mission">A junior data scientist wrote a Python function to average a model's predicted scores. It works for normal input but crashes on an empty list with a <code class="k">ZeroDivisionError</code>.</p>
-<pre class="code"><span class="kw">def</span> <span class="fn">calculate_average</span>(numbers):
-    total = <span class="jn">0</span>
-    <span class="kw">for</span> n <span class="kw">in</span> numbers:
-        total += n
-    <span class="kw">return</span> total / <span class="fn">len</span>(numbers)   <span class="cm"># crashes on []</span></pre>
-      <div class="cLabel">Your Mission</div>
-      <p class="mission">Write a prompt that asks the AI to generate a realistic senior-engineer code review: identify the most important issue first, explain why it matters, suggest the correct fix, include corrected code, and use a constructive, educational tone.</p>
-      <div class="cLabel">You Pass If (tap to tick)</div>
-      <ul class="passList" data-key="c1">
-        <li><span class="box">✓</span> The empty-list bug is identified first</li>
-        <li><span class="box">✓</span> The review explains why the crash happens</li>
-        <li><span class="box">✓</span> Corrected code is provided</li>
-        <li><span class="box">✓</span> The tone is constructive and professional</li>
-      </ul>
-      <div class="passScore" data-score="c1">0 / 4 criteria met</div>
-      <div class="cLabel">Techniques to Use</div>
-      <div class="chalTags"><span>RCTFC</span><span>Chain-of-thought: review by severity first</span></div>
-    </div>
-  </div>
-
-  <div class="chalCard" id="chal2">
-    <div class="chalHead"><span class="cn">C2</span><h4>The Incident Commander</h4><span class="chev">▶</span></div>
-    <div class="chalBody">
-      <div class="cLabel">The Setup — production incident Slack thread</div>
+      <div class="cLabel">The Setup — a live incident, as it unfolded in Slack</div>
       <div class="slackThread">
-<span class="ts">[10:14]</span> <span class="u">neha-mlops:</span> prediction-service throwing 500s. Error rate 0.1% → 34% in 5 min.<br>
-<span class="ts">[10:16]</span> <span class="u">priya-lead:</span> feature-service timing out. Connection pool exhausted.<br>
-<span class="ts">[10:18]</span> <span class="u">aisha-ml:</span> Logs show feature store maxed at 50 connections. 200+ concurrent requests.<br>
-<span class="ts">[10:19]</span> <span class="u">neha-mlops:</span> Scaling connection pool to 200. ETA 3 min.<br>
+<span class="ts">[10:14]</span> <span class="u">neha-mlops:</span> The churn model's live predictions are failing. Error rate up from 0.1% to 34% in 5 minutes.<br>
+<span class="ts">[10:16]</span> <span class="u">priya-lead:</span> Looks like the system that fetches customer features is timing out — it's out of capacity.<br>
+<span class="ts">[10:18]</span> <span class="u">aisha-ml:</span> Confirmed — the feature store can only handle 50 requests at once, and we're getting 200+.<br>
+<span class="ts">[10:19]</span> <span class="u">neha-mlops:</span> Raising the capacity limit to 200. ETA 3 min.<br>
 <span class="ts">[10:22]</span> <span class="u">priya-lead:</span> Error rate dropping. Down to 8%.<br>
-<span class="ts">[10:25]</span> <span class="u">neha-mlops:</span> Pool resize complete. Error rate 0.3%. Stable.<br>
+<span class="ts">[10:25]</span> <span class="u">neha-mlops:</span> Capacity increase complete. Error rate 0.3%. Stable.<br>
 <span class="ts">[10:28]</span> <span class="u">aisha-ml:</span> ~340 failed predictions in the 11-minute window.<br>
 <span class="ts">[10:30]</span> <span class="u">priya-lead:</span> Incident resolved. Aisha, write the post-mortem.
       </div>
       <div class="cLabel">Your Mission</div>
-      <p class="mission">Write a prompt that transforms this Slack thread into a blameless post-mortem — a document explaining what happened, why, and what prevents recurrence (learning, not blaming).</p>
+      <p class="mission">Write a prompt that transforms this Slack thread into a blameless post-mortem — a document explaining what happened, why, and what prevents it from happening again (learning, not blaming).</p>
       <div class="cLabel">You Pass If (tap to tick)</div>
-      <ul class="passList" data-key="c2">
-        <li><span class="box">✓</span> Has Summary, Timeline, Root Cause (5-Whys), Impact, Resolution, Action Items</li>
+      <ul class="passList" data-key="c1">
+        <li><span class="box">✓</span> Has Summary, Timeline, Root Cause (asking "why" repeatedly), Impact, Resolution, Action Items</li>
         <li><span class="box">✓</span> Timeline uses the exact timestamps</li>
         <li><span class="box">✓</span> Action items are about PREVENTION, not just resolution</li>
         <li><span class="box">✓</span> Blameless tone throughout</li>
       </ul>
-      <div class="passScore" data-score="c2">0 / 4 criteria met</div>
+      <div class="passScore" data-score="c1">0 / 4 criteria met</div>
       <div class="cLabel">Techniques to Use</div>
-      <div class="chalTags"><span>RCTFC</span><span>Format control</span><span>Chain-of-thought: root-cause depth</span></div>
+      <div class="chalTags"><span>RCTFC</span><span>Format control</span><span>Chain-of-thought: dig into the root cause</span></div>
     </div>
   </div>
 
-  <div class="chalCard" id="chal3">
-    <div class="chalHead"><span class="cn">C3</span><h4>One Meeting, Four Audiences <span style="font-size:12px;color:var(--gold);font-family:var(--mono)">STRETCH</span></h4><span class="chev">▶</span></div>
+  <div class="chalCard" id="chal2">
+    <div class="chalHead"><span class="cn">C2</span><h4>One Meeting, Four Audiences <span style="font-size:12px;color:var(--gold);font-family:var(--mono)">STRETCH</span></h4><span class="chev">▶</span></div>
     <div class="chalBody">
       <div class="cLabel">The Setup</div>
       <p class="mission">Aisha's original design review notes (from the top of this page).</p>
       <div class="cLabel">Your Mission — write FOUR separate prompts</div>
       <table class="tbl"><thead><tr><th>Output</th><th>Audience</th><th>Key Requirement</th></tr></thead><tbody>
-        <tr><td>A. Executive summary</td><td>VP of Data Science</td><td>Under 100 words, zero jargon, focus on dates and risks</td></tr>
-        <tr><td>B. Sprint tickets</td><td>Project tracker</td><td>Each action item as a ticket with acceptance criteria</td></tr>
-        <tr><td>C. Dependency graph</td><td>Data science team</td><td>Which tasks block which, as a text graph or table</td></tr>
-        <tr><td>D. Feature contract</td><td>Data engineer Karan</td><td>Feature spec: names, data types, source tables, refresh cadence</td></tr>
+        <tr><td>A. Executive summary</td><td>VP of Data Science</td><td>Under 100 words, no jargon, focus on dates and risks</td></tr>
+        <tr><td>B. Sprint tickets</td><td>Project tracker</td><td>Each action item as a ticket with criteria for "done"</td></tr>
+        <tr><td>C. Dependency map</td><td>Data science team</td><td>Which tasks block which, as a simple list or table</td></tr>
+        <tr><td>D. Handoff brief</td><td>Data engineer Karan</td><td>Exactly what he needs to prepare: what to name things, what to track, and how often to update it</td></tr>
       </tbody></table>
       <div class="cLabel">You Pass If (tap to tick)</div>
-      <ul class="passList" data-key="c3">
+      <ul class="passList" data-key="c2">
         <li><span class="box">✓</span> Four genuinely different structures — not the same output reworded</li>
-        <li><span class="box">✓</span> Executive summary is under 100 words with zero jargon</li>
-        <li><span class="box">✓</span> Sprint tickets include acceptance criteria</li>
-        <li><span class="box">✓</span> Dependency graph shows which task blocks which</li>
+        <li><span class="box">✓</span> Executive summary is under 100 words with no jargon</li>
+        <li><span class="box">✓</span> Sprint tickets include criteria for "done"</li>
+        <li><span class="box">✓</span> Dependency map shows which task blocks which</li>
       </ul>
-      <div class="passScore" data-score="c3">0 / 4 criteria met</div>
+      <div class="passScore" data-score="c2">0 / 4 criteria met</div>
       <div class="cLabel">Techniques to Use</div>
       <div class="chalTags"><span>RCTFC × 4</span><span>Format control per output</span></div>
     </div>
@@ -794,7 +769,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 
 <footer class="footer"><div class="wrap">
   <p>Class 2 · Prompt Engineering Basics — AIML Program</p>
-  <p style="margin-top:6px">Interactive teaching companion · 8 simulators · 5 checkpoint quizzes · 3 hands-on challenges</p>
+  <p style="margin-top:6px">Interactive teaching companion · 8 simulators · 5 checkpoint quizzes · 2 hands-on challenges</p>
 </div></footer>
 
 <script>
